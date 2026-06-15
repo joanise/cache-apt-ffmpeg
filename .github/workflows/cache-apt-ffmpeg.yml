@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: awalsh128/cache-apt-pkgs-action@681749ae568c81c2037cb9185e38b709b261bd2f # v1.6.1
         with:
-          packages: ffmpeg
+          packages: ffmpeg sox
           execute_install_scripts: true
       - name: Verify ffmpeg installation
         run: ffmpeg -version
