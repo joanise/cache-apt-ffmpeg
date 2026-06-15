@@ -5,6 +5,8 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu/lapack:/usr/lib/x86_64-linux-gnu/blas
     steps:
       - uses: awalsh128/cache-apt-pkgs-action@681749ae568c81c2037cb9185e38b709b261bd2f # v1.6.1
         with:
