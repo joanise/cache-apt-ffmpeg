@@ -10,5 +10,16 @@ jobs:
         with:
           packages: ffmpeg sox
           execute_install_scripts: true
+      - name: look for libblas.so.3
+        run: find /usr/lib/x86_64-linux-gnu/blas -ls
       - name: Verify ffmpeg installation
         run: ffmpeg -version
+
+  libblas3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: awalsh128/cache-apt-pkgs-action@681749ae568c81c2037cb9185e38b709b261bd2f # v1.6.1
+        with:
+          packages: libblas3
+      - name: look for libblas.so.3
+        run: find /usr/lib/x86_64-linux-gnu/blas -ls
