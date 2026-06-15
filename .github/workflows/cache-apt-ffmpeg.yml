@@ -10,8 +10,11 @@ jobs:
         with:
           packages: ffmpeg sox
           execute_install_scripts: true
-      - name: look for libblas.so.3
-        run: find /usr/lib/x86_64-linux-gnu/blas -ls
+      - run: find /usr/lib/x86_64-linux-gnu/blas -ls
+      - run: find /lib /usr/lib -name 'libblas*' -ls
+      - run: which ffmpeg
+      - run: /lib64/ld-linux-x86-64.so.2 --help
+      - run: ldd $(which ffmpeg)
       - name: Verify ffmpeg installation
         run: ffmpeg -version
 
