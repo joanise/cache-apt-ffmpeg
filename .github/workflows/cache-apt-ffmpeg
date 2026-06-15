@@ -1,0 +1,13 @@
+name: cache apt ffmpeg
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: awalsh128/cache-apt-pkgs-action@681749ae568c81c2037cb9185e38b709b261bd2f # v1.6.1
+        with:
+          packages: ffmpeg
+      - name: Verify ffmpeg installation
+        run: ffmpeg -version
